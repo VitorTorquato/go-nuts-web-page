@@ -8,10 +8,10 @@ export function Header(){
                     <SideMenu/>
 
                     
-                <h1 className="text-4xl">GoNuts</h1>
+                <h1 className="text-5xl md:7xl">GoNuts</h1>
 
                 <nav className='hidden sm:flex items-center  gap-7'>
-                <Link
+                            <Link
                               className="text-2xl"
                               href='/'>Home</Link>
                               <Link
@@ -19,10 +19,11 @@ export function Header(){
                               href='/aboutus'>About Us</Link>
                               <Link
                               className="text-2xl "
-                              href='/services'>Services</Link>
+                              href='/services'>Products</Link>
                               <Link
                               className="text-2xl "
-                              href='/order'>Order</Link>  
+                              href='/order'>Order
+                              </Link>  
                 </nav>
 
             </div>
