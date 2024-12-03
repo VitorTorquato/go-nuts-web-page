@@ -23,7 +23,7 @@ export default function Home() {
                   </div>
                   <Link
                   className="font-medium text-2xl md:text-3xl border-2 border-slate-200 rounded-md w-11/12 py-2 px-2 flex items-center justify-center text-slate-200 hover:text-slate-950 bg-transparent hover:bg-slate-200 transition-all duration-300"
-                  href='/order'>Order now</Link>
+                  href='/order/personalized'>Order now</Link>
               </div>
             </div>
             <Image
