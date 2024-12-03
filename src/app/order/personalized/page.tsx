@@ -7,6 +7,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/input";
 
+import { IoLogoWhatsapp } from "react-icons/io";
 
 const schema = z.object({
     name:z.string().min(1,'Name is required'),
@@ -63,8 +64,8 @@ export default function Order(){
     return(
         <Container>
             <main className="w-full mb-8">
-                <div className="w-full max-w-5xl mx-auto flex items-center gap-9 justify-between mt-9">
-                    <section className="w-2/4">
+                <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-9 justify-between mt-9">
+                    <section className="w-full md:w-2/4">
                         <h1>How it works</h1>
 
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, expedita! Vel incidunt facilis delectus explicabo optio maxime voluptate ipsam voluptatum repellat excepturi repudiandae beatae rem tempore, reiciendis tempora iure repellendus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nulla, perspiciatis alias voluptas ipsam cum laborum quo laboriosam, debitis quidem quasi eligendi officiis aspernatur ipsum reiciendis? Voluptatibus cumque eos perferendis.</p>
@@ -84,7 +85,7 @@ export default function Order(){
                                     />
                         </div>
 
-                            <div className="w-full flex justify-between gap-5">
+                            <div className="w-full flex flex-col md:flex-row justify-between gap-5">
 
                             <div className="w-full mb-3">
                                     <p>Number of Guests</p>
@@ -114,7 +115,7 @@ export default function Order(){
 
 
                             </div>
-                        <div className="w-full flex justify-between gap-5">
+                        <div className="w-full flex flex-col md:flex-row  justify-between gap-5">
 
                             <div className="w-full mb-3">
                                     <p>Contact number</p>
@@ -139,7 +140,7 @@ export default function Order(){
                          
                         </div>
                         
-                        <div className="w-full flex justify-between gap-5">
+                        <div className="w-full flex flex-col md:flex-row  justify-between gap-5">
 
                             <div className="w-full mb-3">
                                     <p>Date of Event</p>
@@ -170,6 +171,26 @@ export default function Order(){
                          
                         </div>
 
+                        <div className="relative w-full  max-w-52 ml-auto mb-3">
+                                   
+                            <p>Reference</p>
+
+                            <div
+                                    className="absolute p-1 w-48 left-3 top-8 -z-50 flex flex-col items-center justify-center gap-1 text-sm cursor-pointer"
+                                    >
+                                        <span>clik to select file a 'JPEG or JPG' (10 MB limit per file)</span>
+                                        
+                                    </div>
+
+                                   <div
+                                   className=" border-2 border-dashed border-slate-400 p-4 flex justify-center items-center text-center"
+                                   >
+                                    <input 
+                                    className="opacity-0 cursor-pointer"
+                                    type="file" />
+                                   </div>
+                            </div>
+
                         
                         <div className="w-full mb-3">
                                     <p>Description</p>
@@ -178,8 +199,16 @@ export default function Order(){
                                     name="description"
                                     id="description"></textarea>
                             </div>
-                       
 
+
+                       
+                       
+                        <button
+                        type="submit"
+                        className="w-full border-2 border-slate-400 rounded-md  flex items-center gap-2 justify-center"
+                        >
+                        Order via <IoLogoWhatsapp size={16} color="#121212"/>
+                        </button>
 
                        
                     </form>
