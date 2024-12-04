@@ -3,13 +3,17 @@
 
 import { Container } from "@/components/container";
 
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/input";
 
-import { IoLogoWhatsapp } from "react-icons/io";
+import { IoLogoWhatsapp ,IoMdClose} from "react-icons/io";
 import { FaFileAlt } from "react-icons/fa";
+import { ChangeEvent, useState } from "react";
+import Link from "next/link";
+
+
 
 const schema = z.object({
     name:z.string().min(1,'Name is required'),
@@ -21,10 +25,8 @@ const schema = z.object({
     ], { 
         required_error: 'Event type is required' 
     }),
-    contact:z.string().min(1, 'Contatc number is required').refine((value) => /^(\d{11,12})$/.test(value) ,{
-        message:'Contact numbe invalid'
-    }),
-    email:z.string().min(1,'E-mail address is required'),
+    contact:z.string().min(1, 'Contatc number is required'),
+    email:z.string().email(),
     date: z
     .string() // Aceitamos inicialmente como string, porque é assim que o HTML `<input type="date">` retorna o valor.
     .refine((value) => !isNaN(Date.parse(value)), {
@@ -43,25 +45,65 @@ const schema = z.object({
      }),
     guests:z.string().min(1, 'Number of people is required'),
     description: z.string().min(1,'Description is required'),
-    image:z
-    .any() // Start with `any` because the file input returns a `File` object.
-    .refine((file) => file?.type.startsWith("image/"), {
-      message: "The file must be an image",
-    }) // Check that the file is an image by its MIME type.
-    .refine((file) => file?.size <= 5 * 1024 * 1024, {
-      message: "The image must be smaller than 5MB",
-    }),
-     
+ 
 })
 
 type FormData = z.infer<typeof schema>
 
+
+
 export default function Order(){
 
-    const {register, handleSubmit, formState:{errors} , reset} = useForm<FormData>({
+    const {register, handleSubmit,setValue, formState:{errors} , reset} = useForm<FormData>({
         resolver:zodResolver(schema),
         mode:'onChange'
     })
+
+
+    const [message,setMessage] = useState<FormData[]>([])
+
+
+    function onSubmit(data:FormData){
+
+        const WhatsappMessage = {
+            name: data.name,
+            guests:data.guests,
+            eventType:data.eventType,
+            contact:data.contact,
+            email:data.email,
+            date:data.date,
+            time:data.time,
+            description:data.description,
+       
+
+        }
+        console.log(WhatsappMessage)
+        setMessage((prevState) => [...prevState,WhatsappMessage])
+
+
+        const messageText = `
+            Hello, my name is ${data.name}.
+            Number of guests: ${data.guests}
+            Event Type: ${data.eventType}
+            Contact: ${data.contact}
+            Email: ${data.email}
+            Date: ${data.date}
+            Time: ${data.time}
+            Description: ${data.description}
+        `.trim();
+
+        const encodedMessage = encodeURIComponent(messageText);
+
+        // Link do WhatsApp
+        const whatsappLink = `https://api.whatsapp.com/send/?phone=35679240637&text=${encodedMessage}&type=phone_number`;
+
+        window.open(whatsappLink, '_blank');    
+       
+        
+    }
+    
+
+
 
     return(
         <Container>
@@ -73,7 +115,9 @@ export default function Order(){
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, expedita! Vel incidunt facilis delectus explicabo optio maxime voluptate ipsam voluptatum repellat excepturi repudiandae beatae rem tempore, reiciendis tempora iure repellendus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nulla, perspiciatis alias voluptas ipsam cum laborum quo laboriosam, debitis quidem quasi eligendi officiis aspernatur ipsum reiciendis? Voluptatibus cumque eos perferendis.</p>
                     </section>
 
-                    <form className="w-full md:flex-1 flex flex-col gap-6 bg-slate-100 p-4 rounded-md drop-shadow-md">
+                    <form 
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="w-full md:flex-1 flex flex-col gap-6 bg-slate-100 p-4 rounded-md drop-shadow-md">
 
                             <h2 className="text-center text-4xl">Let's Go Nuts</h2>
 
@@ -105,13 +149,14 @@ export default function Order(){
                                     <select
                             className="w-full bg-transparent border-b-2 border-slate-400 h-11 px-2 outline-none"
                             {...register('eventType')}
+                            name="eventType"
                             defaultValue=''
                             >
                                 <option value="" disabled>Select one type</option>
                                 <option value="Wedding">Wedding</option>
                                 <option value="Private Party">Private Party</option>
                                 <option value="Corporate Event">Corporate Event</option>
-                                {errors.eventType && <p>{errors.eventType?.message}</p>}
+                              
                             </select>
                             </div>
 
@@ -159,54 +204,31 @@ export default function Order(){
 
                                     <select
                              className="w-full bg-transparent border-b-2 border-slate-400 h-11 px-2 outline-none"
-                            {...register('eventType')}
+                            {...register('time')}
+                            name="time"
                             defaultValue=''
                             >
                                 <option value="" disabled>Select one time</option>
                                 <option value="Morning">Morning</option>
                                 <option value="Afternoon">Afternonn</option>
                                 <option value="Evening">Evening</option>
-                                {errors.eventType && <p>{errors.time?.message}</p>}
+                              
                             </select>
                             </div>
 
                          
                         </div>
 
-                        <div className="relative w-full ml-auto mb-3">
-                                   
-                            <p>Reference</p>
-
-                            <div className="w-full border-2 mt-1 border-slate-400 rounded-sm  flex flex-col items-center text-sm cursor-pointer">
-                                        
-                                      
-                                        <div className="absolute px-2 w-full flex items-center gap-2"
-                                        style={{top:'33px'}}
-                                        > 
-                                                <FaFileAlt size={14} color="#000"/>
-                                           
-                                            <span className="border-l border-slate-500 px-1">JPEG / JPG</span>
-
-                                        </div>
-
-                                        <input 
-                                        className="w-full h-full opacity-0" 
-                                        type="file"
-                                         accept="image"
-                                         />
-
-                                        
-                            </div>
-
-                            </div>
 
                         
                         <div className="w-full mb-3">
                                     <p>Description</p>
                                     <textarea 
                                     className="w-full bg-transparent border-b-2 border-slate-400 h-11 px-2 outline-none"
+                                    {...register('description')}
                                     name="description"
-                                    id="description"></textarea>
+                                    id="description"
+                                    ></textarea>
                             </div>
 
 
@@ -216,7 +238,9 @@ export default function Order(){
                         type="submit"
                         className="w-full border-2 border-slate-400 rounded-md  flex items-center gap-2 justify-center"
                         >
-                        Order via <IoLogoWhatsapp size={16} color="#121212"/>
+                              
+                                    Order via <IoLogoWhatsapp size={16} color="#121212"/>
+                             
                         </button>
 
                        
