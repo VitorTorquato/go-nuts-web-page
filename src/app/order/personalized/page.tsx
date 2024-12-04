@@ -1,5 +1,6 @@
 'use client'
 
+
 import { Container } from "@/components/container";
 
 import { useForm } from "react-hook-form";
@@ -8,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/input";
 
 import { IoLogoWhatsapp } from "react-icons/io";
+import { FaFileAlt } from "react-icons/fa";
 
 const schema = z.object({
     name:z.string().min(1,'Name is required'),
@@ -71,7 +73,7 @@ export default function Order(){
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, expedita! Vel incidunt facilis delectus explicabo optio maxime voluptate ipsam voluptatum repellat excepturi repudiandae beatae rem tempore, reiciendis tempora iure repellendus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nulla, perspiciatis alias voluptas ipsam cum laborum quo laboriosam, debitis quidem quasi eligendi officiis aspernatur ipsum reiciendis? Voluptatibus cumque eos perferendis.</p>
                     </section>
 
-                    <form className="flex-1 flex flex-col gap-6 bg-slate-100 p-4 rounded-md drop-shadow-md">
+                    <form className="w-full md:flex-1 flex flex-col gap-6 bg-slate-100 p-4 rounded-md drop-shadow-md">
 
                             <h2 className="text-center text-4xl">Let's Go Nuts</h2>
 
@@ -171,24 +173,31 @@ export default function Order(){
                          
                         </div>
 
-                        <div className="relative w-full  max-w-52 ml-auto mb-3">
+                        <div className="relative w-full ml-auto mb-3">
                                    
                             <p>Reference</p>
 
-                            <div
-                                    className="absolute p-1 w-48 left-3 top-8 -z-50 flex flex-col items-center justify-center gap-1 text-sm cursor-pointer"
-                                    >
-                                        <span>clik to select file a 'JPEG or JPG' (10 MB limit per file)</span>
+                            <div className="w-full border-2 mt-1 border-slate-400 rounded-sm  flex flex-col items-center text-sm cursor-pointer">
                                         
-                                    </div>
+                                      
+                                        <div className="absolute px-2 w-full flex items-center gap-2"
+                                        style={{top:'33px'}}
+                                        > 
+                                                <FaFileAlt size={14} color="#000"/>
+                                           
+                                            <span className="border-l border-slate-500 px-1">JPEG / JPG</span>
 
-                                   <div
-                                   className=" border-2 border-dashed border-slate-400 p-4 flex justify-center items-center text-center"
-                                   >
-                                    <input 
-                                    className="opacity-0 cursor-pointer"
-                                    type="file" />
-                                   </div>
+                                        </div>
+
+                                        <input 
+                                        className="w-full h-full opacity-0" 
+                                        type="file"
+                                         accept="image"
+                                         />
+
+                                        
+                            </div>
+
                             </div>
 
                         
