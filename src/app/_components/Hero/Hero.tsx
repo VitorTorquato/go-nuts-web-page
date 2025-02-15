@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import heroImg from '../../../../public/rainbow-cake-hero-1.jpg'
+import heroImg from '../../../../public/images/rainbow-cake-hero-1.jpg'
 
 export function Hero(){
     return(

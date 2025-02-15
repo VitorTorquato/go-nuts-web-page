@@ -1,5 +1,5 @@
 import Image from "next/image";
-import rafaelImg from '../../../../public/rafael.webp';
+import rafaelImg from '../../../../public/images/rafael.webp';
 
 export function AboutUs(){
     return(

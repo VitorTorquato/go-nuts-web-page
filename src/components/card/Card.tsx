@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import cakeImg from '../../../public/cakeHome1.jpg'
+import cakeImg from '../../../public/images/cakeHome1.jpg';
 
 export function Card(){
     return(

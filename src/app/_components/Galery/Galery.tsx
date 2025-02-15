@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import cake from '../../../../public/images/cakeHome1.jpg'
 
 export function Galery(){
     return(
@@ -27,7 +28,7 @@ export function Galery(){
               <div className="w-full  overflow-hidden">
               <Image
                 className="object-cover w-full opacity-50 hover:scale-105 hover:opacity-100 transition-all duration-300 "
-                src={'/cakeHome1.JPG'}
+                src={cake}
                 alt="Personalized cake"
                 width={100}
                 height={100}
@@ -42,7 +43,7 @@ export function Galery(){
               <div className="w-full  overflow-hidden">
               <Image
                 className="object-cover w-full opacity-50 hover:scale-105 hover:opacity-100 transition-all duration-300 "
-                src={'/cakeHome1.JPG'}
+                src={cake}
                 alt="Personalized cake"
                 width={100}
                 height={100}
@@ -56,7 +57,7 @@ export function Galery(){
               <div className="w-full  overflow-hidden">
               <Image
                 className="object-cover w-full opacity-50 hover:scale-105 hover:opacity-100 transition-all duration-300 "
-                src={'/cakeHome1.JPG'}
+                src={cake}
                 alt="Personalized cake"
                 width={100}
                 height={100}

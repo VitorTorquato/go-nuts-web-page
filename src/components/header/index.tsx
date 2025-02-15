@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { SideMenu } from "./sideMenu";
-import logo from '@/../../public/logo-removebg-preview.png' 
+import logo from '@/../../public/images/logo-removebg-preview.png' 
 import Image from "next/image";
+
 
 export function Header(){
     return(

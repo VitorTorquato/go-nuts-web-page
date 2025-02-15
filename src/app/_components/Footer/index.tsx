@@ -8,7 +8,7 @@ export function Footer(){
   const date = new Date().getFullYear();
 
   return(
-        <section className="w-full bg-[#f95099a1] py-6 mt-9">
+        <section className="w-full bg-[#f9509973] py-6 mt-9">
       
         <div className="container mx-auto">
 
