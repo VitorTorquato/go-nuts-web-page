@@ -1,9 +1,9 @@
-import { Container } from "@/components/container";
+
 
 export default function Services(){
     return(
-        <Container>
+        <section className="container mx-auto">
             <h1>Services</h1>
-        </Container>
+        </section>
     )
 }

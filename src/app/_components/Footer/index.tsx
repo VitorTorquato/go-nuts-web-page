@@ -1,14 +1,16 @@
 import { MdEmail, MdLocationPin } from "react-icons/md";
-import { Container } from "../container";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 import Link from "next/link";
 
 export function Footer(){
-    return(
-        <section className="w-full bg-slate-200 py-6 mt-9">
+
+  const date = new Date().getFullYear();
+
+  return(
+        <section className="w-full bg-[#f95099a1] py-6 mt-9">
       
-        <Container>
+        <div className="container mx-auto">
 
            <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-4 w-ful items-center justify-between">
 
@@ -68,18 +70,18 @@ export function Footer(){
                              href='/services'>Terms & Conditions</Link>
              </div>
            </div>
-        </Container>
+        </div>
 
-        <footer className="w-full bg-slate-200 py-4">
-        <Container>
+        <footer className="w-full py-4">
+        <div className="container mx-auto">
           <div className="border border-slate-600 mb-7"></div>
 
               <div className="flex items-center ">
-              <span className="mt-1">©</span>
-                 2024 Go Nuts Br
+              <span className="mt-1">&copy;</span>
+                 {date} Go Nuts Br
               </div>
      
-        </Container>
+        </div>
       </footer>
       </section>
 

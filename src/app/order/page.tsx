@@ -1,8 +1,5 @@
 'use client'
 
-
-import { Container } from "@/components/container";
-
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,7 +8,7 @@ import { Input } from "@/components/input";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaCalendar} from "react-icons/fa";
 import { FaPeopleGroup,FaPencil,FaCakeCandles } from "react-icons/fa6";
-import { Footer } from "@/components/footer";
+import { Footer } from "@/app/_components/Footer";
 import Image from "next/image";
 
 
@@ -30,12 +27,12 @@ const schema = z.object({
     contact:z.string().min(1, 'Contatc number is required'),
     email:z.string().email(),
     date: z
-    .string() // Aceitamos inicialmente como string, porque é assim que o HTML `<input type="date">` retorna o valor.
+    .string() 
     .refine((value) => !isNaN(Date.parse(value)), {
       message: "The date must be valid",
     }) // Verifica se o valor é uma data válida.
     .refine((value) => new Date(value) >= new Date(), {
-      message: "The date mus be in the future", // Aqui você pode ajustar para validar outras regras, como intervalo.
+      message: "The date must be in the future", 
     }),
     time:z.enum([
         'Morning',
@@ -84,7 +81,7 @@ export default function Order(){
         const encodedMessage = encodeURIComponent(messageText);// codificar a string para que nao aja problemas nas ultilizacao da url 
 
         // Link do WhatsApp
-        const whatsappLink = `https://api.whatsapp.com/send/?phone=35679240637&text=${encodedMessage}&type=phone_number`;
+        const whatsappLink = `https://api.whatsapp.com/send/?phone=35679070634&text=${encodedMessage}&type=phone_number`;
 
         window.open(whatsappLink, '_blank');    
        
@@ -97,7 +94,7 @@ export default function Order(){
 
     return(
         <>
-        <Container>
+        <section className="container mx-auto">
             <main className="w-full mb-8">
                 <div className="w-full max-w-3xl mx-auto flex flex-col items-center gap-9 justify-between mt-9 mb-28">
                     <section className="w-full max-w-6xl flex flex-col gap-3">
@@ -421,7 +418,7 @@ export default function Order(){
        
             </main>
 
-        </Container>
+        </section>
             <Footer/>
       </>       
     )
