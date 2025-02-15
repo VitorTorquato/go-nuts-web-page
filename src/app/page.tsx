@@ -1,10 +1,9 @@
-import { Footer } from "@/app/_components/Footer";
-import Image from "next/image";
-import Link from "next/link";
 import { Hero } from "./_components/Hero/Hero";
 import { AboutUs } from "./_components/AboutUs/Aboutus";
 import { Service } from "./_components/Service/Service";
 import { Galery } from "./_components/Galery/Galery";
+import { Testimonials } from "./_components/Testimonials/Testimonials";
+import { Footer } from "@/app/_components/Footer";
 
 
 
@@ -16,7 +15,8 @@ export default function Home() {
         <Hero/>
         <AboutUs/>
         <Service/>
-        <Galery/>             
+        <Galery/> 
+        <Testimonials/>            
       </main>
       <Footer/>
     </>

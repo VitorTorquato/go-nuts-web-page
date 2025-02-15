@@ -33,9 +33,6 @@ export function SideMenu(){
                                   className="text-2xl "
                                   href='/aboutus'>About Us</Link>
                                   <Link
-                                  className="text-2xl "
-                                  href='/services'>Products</Link>
-                                  <Link
                                   className="text-2xl"
                                   href='/order'>Order</Link>
                            </nav>

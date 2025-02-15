@@ -4,7 +4,7 @@ import cake from '../../../../public/images/cakeHome1.jpg'
 
 export function Galery(){
     return(
-        <section className="container mx-auto">
+        <section className="container mx-auto px-2">
         <h1 className="text-center text-6xl mt-9 mb-11 text-slate-800">Gallery</h1>
         
           <div className="w-full grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-9 md:gap-8 mb-11">
