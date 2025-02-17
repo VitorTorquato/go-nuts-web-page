@@ -1,5 +1,4 @@
 import Image from "next/image";
-import cakeImg1 from '../../../public/images/cakeHome1.jpg';
 import { Footer } from "../_components/Footer";
 import cake1 from '../../../public/images/cakes/cake1.jpeg'
 import cake2 from '../../../public/images/cakes/cake2.jpeg'
@@ -21,6 +20,8 @@ import cake17 from '../../../public/images/cakes/cake17.jpeg'
 import cake18 from '../../../public/images/cakes/cake18.jpeg'
 import cake19 from '../../../public/images/cakes/cake19.jpeg'
 import cake20 from '../../../public/images/cakes/cake20.jpeg'
+
+import { Metadata } from "next";
 
 const cakes = [
     { cakeImg: cake1 },
@@ -44,6 +45,28 @@ const cakes = [
     { cakeImg: cake19 },
     { cakeImg: cake20 },
 ]
+
+export const metadata: Metadata = {
+    title: "Go Nuts BR | Personalized Butter Cakes in Malta",
+    description: "Delicious handcrafted personalized butter cakes in Malta. Custom-made for birthdays, weddings, and all special occasions. Order your unique cake today!",
+    keywords: ["personalized cakes Malta", "custom cakes Malta", "butter cakes Malta", "birthday cakes Malta", "wedding cakes Malta", "Go Nuts BR cakes"],
+    openGraph: {
+      title: "Go Nuts BR | Custom Butter Cakes in Malta",
+      description: "At Go Nuts BR, we create personalized butter cakes made with love and premium ingredients. Perfect for birthdays, weddings, and all celebrations in Malta!",
+      url: "https://go-nuts-web-page.vercel.app/", 
+      type: "website",
+    },
+    robots:{
+      index:true,
+      follow:true,
+      nocache:true,
+      googleBot:{
+        index:true,
+        follow:true,
+        noimageindex:true
+      }
+    }
+  };
 
 export default function Gallery() {
     return (

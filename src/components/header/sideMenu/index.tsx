@@ -13,6 +13,11 @@ export function SideMenu() {
     function handleOpenMenu() {
         setMenuOpen(!menuOpen);
     }
+    function handlecloseMenu(){
+        setTimeout(() => {
+            setMenuOpen(!menuOpen)
+        },1000)
+    }
 
     return (
 
@@ -27,21 +32,25 @@ export function SideMenu() {
                         >
                             <nav className='w-full h-full flex flex-col items-start mt-24  gap-4 py-2 px-5 text-black'>
                                 <Link
+                                onClick={handlecloseMenu}
                                     className="text-2xl"
                                     href='/'>Home</Link>
                                 <Link
                                     className="text-2xl "
-                                    href='#aboutus'>About Us
+                                    href='/#aboutus'>About Us
                                 </Link>
                                 <Link
+                                onClick={handlecloseMenu}
                                     className="text-2xl "
-                                    href='#services'>Services
+                                    href='/#services'>Services
                                 </Link>
                                 <Link
+                                onClick={handlecloseMenu}
                                     className="text-2xl "
                                     href='/gallery'>Galery
                                 </Link>
                                 <Link
+                                onClick={handlecloseMenu}
                                     className="text-2xl"
                                     href='/order'>Order</Link>
                             </nav>
