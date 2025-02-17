@@ -3,7 +3,7 @@ import rafaelImg from '../../../../public/images/rafael.webp';
 
 export function AboutUs(){
     return(
-        <section className="container mx-auto px-3">
+        <section id="aboutus" className="container mx-auto px-3">
                     <h1 className="text-center text-6xl mt-16 text-slate-800">About us</h1>
               
                         <section className="max-w-6xl mx-auto mt-9 flex flex-col justify-between gap-9 md:flex-row">
