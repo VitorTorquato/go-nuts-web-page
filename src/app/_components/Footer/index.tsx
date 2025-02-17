@@ -14,7 +14,7 @@ export function Footer(){
       
         <div className="container mx-auto">
 
-           <div className="w-full mx-auto flex flex-col md:flex-row justify-between">
+           <div className="w-full mx-auto px-2 flex flex-col md:flex-row justify-between">
 
             
               <div className="flex flex-col items-center ">

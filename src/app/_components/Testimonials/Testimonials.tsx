@@ -4,10 +4,6 @@ import useEmblaCaroulse from 'embla-carousel-react';
 import {ChevronLeft , ChevronRight } from 'lucide-react';
 
 
-
-
-import Image from 'next/image';
-
 const testimonials = [
     {
       content:
