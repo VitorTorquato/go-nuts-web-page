@@ -23,7 +23,7 @@ export function AboutUs() {
                         />
                     </div>
                     <div className="max-w-xl text-base flex flex-col text-justify space-y-4 md:text-xl">
-                        <p>Welcome to Go Nuts BR, where every butter cake tells a story—your story!</p>
+                        <p>Welcome to Go Nuts BR, where every buttercream cake tells a story—your story!</p>
 
                         <p>Founded in Malta in 2021, Go Nuts BR is the passion project of Rafale and Felipe, two cake lovers with a mission: to turn simple moments into unforgettable memories. We specialize in personalized butter cakes, made with love, creativity, and the finest ingredients.</p>
 

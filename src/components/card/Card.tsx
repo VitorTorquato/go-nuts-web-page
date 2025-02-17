@@ -1,30 +1,70 @@
-import Image from "next/image";
-import Link from "next/link";
-import cakeImg from '../../../public/images/cakeHome1.jpg';
+"use client"
+
+import cake1 from '../../../public/images/cakes/cake1.jpeg'
+import cake2 from '../../../public/images/cakes/cake2.jpeg'
+import cake3 from '../../../public/images/cakes/cake3.jpeg'
+import cake4 from '../../../public/images/cakes/cake4.jpeg'
+import cake5 from '../../../public/images/cakes/cake5.jpeg'
+import cake6 from '../../../public/images/cakes/cake6.jpeg'
+
+const cakesImg = [
+  {cakeImg: cake1},
+  {cakeImg: cake2},
+  {cakeImg: cake3},
+  {cakeImg: cake4},
+  {cakeImg: cake5},
+  {cakeImg: cake6},
+]
+
+
+import useEmblaCarousel from 'embla-carousel-react';
+
+import Autoplay from 'embla-carousel-autoplay'
+import Image from 'next/image';
 
 export function Card(){
+  const [emblaRef] = useEmblaCarousel({ 
+    loop: true ,
+  
+  }, 
+    [Autoplay({delay:2000,jump:true,stopOnInteraction:false})])
+    
+  
     return(
-        <section className="rounded-lg overflow-hidden drop-shadow-md w-full max-w-[300px] h-fit hover:scale-105 transition-all duration-300 ">
-        <div className="w-full overflow-hidden">
-        <Image
-          className="object-cover w-full"
-          src={cakeImg}
-          alt="Personalized cake"
-          width={100}
-          height={100}
-          quality={100}
-          sizes='100vw'
-          />
-        </div>
+        <section className="py-16">
 
-        <div className="w-full bg-slate-200 text-black flex flex-col gap-2  items-center justify-center py-3">
-          <h1 className="text-3xl">Personalized Cakes</h1>
-          <Link 
-          className="font-medium text-md border-2 border-slate-900 rounded-md py-1 px-5 text-black bg-transparent"
-          href={'/order'}>
-            Quote now
-          </Link>
-        </div>
-      </section>
+                <div className="w-full max-w-[400px] max-h-[400px] mx-auto px-2">
+                       
+                
+                    <div>
+
+                            <div className='overflow-hidden' ref={emblaRef}>
+                                <div className='flex'>
+                                    {cakesImg.map((item,index) => (
+                                        <div
+                                        className='flex-[0_0_100%] min-w-0  px-3'
+                                        key={index}>
+                                            <article className='h-full flex'>
+                                            <Image
+                                            src={item.cakeImg}
+                                            alt="butter cake image"
+                                            width={100}
+                                            height={100}
+                                            quality={100}
+                                            sizes="100vw"
+                                            className='obeject-cover w-full h-full'
+                                              />
+                                            </article>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                      
+                    </div>
+
+
+                </div>
+        </section>
     )
 }

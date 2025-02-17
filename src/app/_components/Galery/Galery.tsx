@@ -16,7 +16,7 @@ const cakes = [
 
 export function Galery() {
   return (
-    <section className="container mx-auto px-2">
+    <section className="container mx-auto px-3">
       <h1 className="text-center text-6xl mt-9 mb-11 text-slate-800">Gallery</h1>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-9 md:gap-8 mb-11">
